@@ -1,4 +1,5 @@
 const wrapperDom = document.querySelector("#wrapper")
+const bodyDom = document.querySelector("body")
 console.log(wrapperDom)
 
 async function airbnbData(airBnb) {
@@ -20,14 +21,25 @@ async function airbnbData(airBnb) {
 
 airbnbData()
 
-function htmlDom(destination) {
-    wrapperDom.insertAdjacentHTML("afterbegin",
+function rent(){
+    bodyDom.insertAdjacentHTML("afterbegin", 
         /* HTML */
         `
-        <div>
+        <h1 id="rent">Apartments for rent</h1>
+        `
+    )
+}
+rent()
+
+function htmlDom(destination) {
+    wrapperDom.insertAdjacentHTML("beforeend",
+        /* HTML */
+        `
+        <div class="location">
         <img src="./img/${destination.image}" alt="./img/${destination.title}">
-        <div><span>&copy;</span> <p>MORE</p></div>
+        <div class="details"><span>&copy;</span> <p class="read_more">MORE</p></div>
         </div>
         `
     )
+    
 }
