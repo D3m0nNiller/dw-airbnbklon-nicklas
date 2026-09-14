@@ -33,6 +33,18 @@ function destinationDom(choice) {
             <div id="destination_image">
                 <img src="./img/${choice.image}" alt="${choice.title}">
             </div>
+
+            <div id="chosen_details">
+                <header>${choice.destination}</header>
+                <h3>${choice.title}</h3>
+                <p>${choice.subtitle}</p>
+                <p>${choice.text}</p>
+                <h3>Facliliteter</h3>
+                <ul>
+                    ${choice.facilities.map(facliliteter => `<li>${facliliteter}</li>`).join("")}
+                </ul>
+                
+            </div>
         </div>
         `
     )
