@@ -36,7 +36,7 @@ function htmlDom(destination) {
         /* HTML */
         `
         <div class="location">
-        <img src="./img/${destination.image}" alt="./img/${destination.title}">
+        <a href=""><img src="./img/${destination.image}" alt="./img/${destination.title}"></a>
         <div class="details"><span>&copy;</span> <p class="read_more">MORE</p></div>
         </div>
         `
