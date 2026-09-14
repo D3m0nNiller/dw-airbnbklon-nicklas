@@ -1,4 +1,4 @@
-const wrapperDom = document.querySelector("#wrapper")
+const destinationWrapperDom = document.querySelector("#destination_wrapper")
 
 async function airbnbData() {
     try {
@@ -26,7 +26,7 @@ async function airbnbData() {
 airbnbData()
 
 function destinationDom(choice) {
-    wrapperDom.insertAdjacentHTML("afterbegin",
+    destinationWrapperDom.insertAdjacentHTML("afterbegin",
         /* HTML */
         `
         <div id="chosen">

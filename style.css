@@ -10,6 +10,8 @@ img {
     display: block;
 }
 
+/* Index HTML */
+
 #wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -51,4 +53,37 @@ img {
 
 #rent {
     margin: 40px 12.5%;
+}
+
+/* Destination HTML */
+
+#chosen {
+    display: flex;
+    gap: 5em;
+}
+
+#destination_image {
+    flex: 1;
+}
+
+#chosen_details {
+    flex: 1;
+}
+
+#chosen_details header {
+    font-size: 2em;
+}
+
+#chosen_details h3 {
+    margin: 1em 0;
+}
+
+#chosen_details header,
+#chosen_details h3:first-of-type,
+#chosen_details p:first-of-type {
+    text-align: center;
+}
+
+#chosen_details p:last-of-type {
+    margin: 1.8em 0;
 }
