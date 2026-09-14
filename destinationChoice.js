@@ -41,7 +41,7 @@ function destinationDom(choice) {
                 <p>${choice.text}</p>
                 <h3>Facliliteter</h3>
                 <ul>
-                    ${choice.facilities.map(facliliteter => `<li>${facliliteter}</li>`).join("")}
+                    ${choice.facilities.map(facliliteter => `<li id="facility_items">${facliliteter}</li>`).join("")}
                 </ul>
                 
             </div>

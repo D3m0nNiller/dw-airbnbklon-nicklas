@@ -87,3 +87,7 @@ img {
 #chosen_details p:last-of-type {
     margin: 1.8em 0;
 }
+
+#facility_items {
+    margin-left: 2em;
+}
