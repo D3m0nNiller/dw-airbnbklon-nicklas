@@ -1,21 +1,25 @@
 const wrapperDom = document.querySelector("#wrapper")
-const params = new URLSearchParams(window.location.search);
 
-const id = params.get("id");
-
-console.log(id);
-
-async function airbnbData(airBnb) {
+async function airbnbData() {
     try {
-        const response = await fetch(`./data/destinations.json`)
-        if (!response.ok) {
-            throw new Error(`Didint get fetched right ${response.status}`)
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramId = urlParams.get('id');
+
+        if (!paramId) {
+            throw new Error("No ID found in the URL search parameters.");
         }
 
-        const destinationsData = await response.json()
+        const response = await fetch(`./data/${paramId}.json`);
+        if (!response.ok) {
+            throw new Error(`Didnt get fetched right ${response.status}`);
+        }
+
+        const destinationsData = await response.json();
+
+        destinationDom(destinationsData);
 
     } catch (error) {
-        console.error("Faiæed to fetch the data", error)
+        console.error("Error loading the page data:", error);
     }
 }
 
@@ -25,7 +29,11 @@ function destinationDom(choice) {
     wrapperDom.insertAdjacentHTML("afterbegin",
         /* HTML */
         `
-        
+        <div id="chosen">
+            <div id="destination_image">
+                <img src="./img/${choice.image}" alt="${choice.title}">
+            </div>
+        </div>
         `
     )
 }
