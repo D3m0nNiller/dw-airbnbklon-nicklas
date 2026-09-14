@@ -14,6 +14,8 @@ async function airbnbData(airBnb) {
             htmlDom(destination)
         });
 
+        console.log(destinationsData)
+
     } catch (error) {
         console.error("Faiæed to fetch the data", error)
     }
@@ -36,7 +38,7 @@ function htmlDom(destination) {
         /* HTML */
         `
         <div class="location">
-        <a href=""><img src="./img/${destination.image}" alt="./img/${destination.title}"></a>
+        <a href="destination.html?id=${destination.id}"><img src="./img/${destination.image}" alt="./img/${destination.title}"></a>
         <div class="details"><span>&copy;</span> <p class="read_more">MORE</p></div>
         </div>
         `
