@@ -35,10 +35,10 @@ function htmlDom(destination) {
     wrapperDom.insertAdjacentHTML("beforeend",
         /* HTML */
         `
-        <div class="location">
-        <a href="destination.html?id=${destination.id}"><img src="./img/${destination.image}" alt="${destination.title}"></a>
+        <a href="destination.html?id=${destination.id}"><div class="location">
+        <img src="./img/${destination.image}" alt="${destination.title}">
         <div class="details"><span>&copy;</span> <p class="read_more">MORE</p></div>
-        </div>
+        </div></a>
         `
     )
     

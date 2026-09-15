@@ -27,11 +27,18 @@ img {
     display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  color: #000;
 }
 
-.location a {
+.location img {
     grid-column: 1/-1;
     grid-row: 1/-1;
+}
+
+#wrapper a{
+    text-decoration: none;
+    color: #000;
+    display: grid;
 }
 
 .location .details span {
