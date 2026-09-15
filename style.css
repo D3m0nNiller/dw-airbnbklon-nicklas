@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 img {
@@ -74,6 +75,7 @@ img {
 
 #chosen_details {
     flex: 1;
+    margin-top: 6em;
 }
 
 #chosen_details header {
