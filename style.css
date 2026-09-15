@@ -49,17 +49,22 @@ img {
     grid-column: 1/-1;
     grid-row: 5/-2;
     background-color: #CEF9FF;
-    display: flex;
-    padding-top: 1.9em;
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr)
 }
 
 .fa-heart {
     margin-left: 10px;
+    grid-column: 1/-1;
+  grid-row: 2/2;
 }
 
 .read_more {
     margin-left: auto;
     margin-right: 1em;
+    grid-column: 1/-1;
+  grid-row: 2/2;
 }
 
 #rent {
