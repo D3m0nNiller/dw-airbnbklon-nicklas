@@ -31,6 +31,9 @@ function destinationDom(choice) {
         `
         <div id="chosen">
             <div id="destination_image">
+                <div id="favourite">
+                    <i class="fa-regular fa-heart"></i><p>FAVORIT</p>
+                </div>
                 <img src="./img/${choice.image}" alt="${choice.title}">
             </div>
 

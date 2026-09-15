@@ -50,21 +50,21 @@ img {
     grid-row: 5/-2;
     background-color: #CEF9FF;
     display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr)
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr)
 }
 
 .fa-heart {
     margin-left: 10px;
     grid-column: 1/-1;
-  grid-row: 2/2;
+    grid-row: 2/2;
 }
 
 .read_more {
     margin-left: auto;
     margin-right: 1em;
     grid-column: 1/-1;
-  grid-row: 2/2;
+    grid-row: 2/2;
 }
 
 #rent {
@@ -80,6 +80,26 @@ img {
 
 #destination_image {
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    margin-top: 10px;
+}
+
+#destination_image img {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+}
+
+#favourite {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    margin-right: 25px;
+    margin-top: 5px;
 }
 
 #chosen_details {
