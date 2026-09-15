@@ -65,6 +65,8 @@ function favouriteChoice(favourite) {
     } else {
         favourites.push(favourite.id)
         fav.classList.add("favourite")
+        fav.classList.remove("fa-regular")
+        fav.classList.add("fa-solid")
     }
 
     localStorage.setItem("favourites", JSON.stringify(favourites))
