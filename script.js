@@ -1,17 +1,45 @@
 const wrapperDom = document.querySelector("#wrapper")
+const bodyDom = document.querySelector("body")
+console.log(wrapperDom)
 
-async function airBnb(airBnbData) {
-    const reponse = await fetch(`data/destinations.json`)
+async function airbnbData(airBnb) {
+    try {
+        const response = await fetch(`./data/destinations.json`)
+        if (!response.ok) {
+            throw new Error(`Didint get fetched right ${response.status}`)
+        }
 
-    const data = await reponse.json()
+        const destinationsData = await response.json()
+        destinationsData.destinations.forEach(destination => {
+            htmlDom(destination)
+        });
 
-    console.log(data)
+    } catch (error) {
+        console.error("Failed to fetch the data", error)
+    }
 }
-airBnb()
-// data/destinations.forEach(airBnb => {
-//     const divBox = document.createElement("div")
-//     const airBngImg = document.createElement("img")
-//     airBngImg.setAttribute("src", airBnb.image)
 
-//     divBox.append(airBngImg)
-// });
+airbnbData()
+
+function rent(){
+    bodyDom.insertAdjacentHTML("afterbegin", 
+        /* HTML */
+        `
+        <h1 id="rent">Apartments for rent</h1>
+        `
+    )
+}
+rent()
+
+function htmlDom(destination) {
+    wrapperDom.insertAdjacentHTML("beforeend",
+        /* HTML */
+        `
+        <div class="location">
+        <a href="destination.html?id=${destination.id}"><img src="./img/${destination.image}" alt="${destination.title}"></a>
+        <div class="details"><span>&copy;</span> <p class="read_more">MORE</p></div>
+        </div>
+        `
+    )
+    
+}
