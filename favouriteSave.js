@@ -52,13 +52,10 @@ function setupFavourites() {
                 fav.classList.add("fa-solid");
             }
 
-
             localStorage.setItem(
                 "favourites",
                 JSON.stringify(favourites)
             );
-
-            console.log(favourites);
         });
 
         window.favouriteListenerAdded = true;
