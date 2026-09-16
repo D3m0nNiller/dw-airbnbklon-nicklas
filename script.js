@@ -11,7 +11,7 @@ async function airbnbData(airBnb) {
         const destinationsData = await response.json()
         destinationsData.destinations.forEach(destination => {
             htmlDom(destination)
-            favouriteChoice(destination)
+            setupFavourites(destination)
         });
 
     } catch (error) {
@@ -41,38 +41,4 @@ function htmlDom(destination) {
         </div></a>
         `
     )
-
-
-}
-
-function favouriteChoice(favourite) {
-    const fav = document.querySelector(`[data-fav="${favourite.id}"]`)
-
-    let favourites = JSON.parse(localStorage.getItem("favourites")) || []
-
-    if (favourites.includes(favourite.id)) {
-        fav.classList.add("favourite")
-    }
-    fav.addEventListener("click", (favouriteChosen) => {
-    favouriteChosen.preventDefault()
-    favouriteChosen.stopPropagation()
-
-    let favourites = JSON.parse(localStorage.getItem("favourites")) || []
-
-    if (favourites.includes(favourite.id)) {
-        favourites = favourites.filter(id => id !== favourite.id)
-        fav.classList.remove("favourite")
-        fav.classList.add("fa-regular")
-        fav.classList.remove("fa-solid")
-    } else {
-        favourites.push(favourite.id)
-        fav.classList.add("favourite")
-        fav.classList.remove("fa-regular")
-        fav.classList.add("fa-solid")
-    }
-
-    localStorage.setItem("favourites", JSON.stringify(favourites))
-
-    console.log(favourites)
-})        
 }

@@ -91,7 +91,7 @@ img {
     grid-row: 1/-1;
 }
 
-#favourite {
+#mark {
     grid-column: 1/-1;
     grid-row: 1/2;
     z-index: 2;
