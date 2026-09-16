@@ -17,6 +17,7 @@ async function airbnbData() {
         const destinationsData = await response.json();
 
         destinationDom(destinationsData);
+        savedFavourite(destinationsData);
 
     } catch (error) {
         console.error("Error loading the page data:", error);
@@ -32,7 +33,7 @@ function destinationDom(choice) {
         <div id="chosen">
             <div id="destination_image">
                 <div id="favourite">
-                    <i class="fa-regular fa-heart"></i><p>FAVORIT</p>
+                    <i class="fa-regular fa-heart" data-fav="${choice.id}"></i><p>FAVORIT</p>
                 </div>
                 <img src="./img/${choice.image}" alt="${choice.title}">
             </div>
@@ -51,4 +52,36 @@ function destinationDom(choice) {
         </div>
         `
     )
+}
+
+function savedFavourite(saved) {
+    const fav = document.querySelector(`[data-fav="${saved.id}"]`)
+
+    let favourites = JSON.parse(localStorage.getItem("favourites")) || []
+
+    if (favourites.includes(saved.id)) {
+        fav.classList.add("favourite")
+    }
+    fav.addEventListener("click", (favouriteChosen) => {
+    favouriteChosen.preventDefault()
+    favouriteChosen.stopPropagation()
+
+    let favourites = JSON.parse(localStorage.getItem("favourites")) || []
+
+    if (favourites.includes(saved.id)) {
+        favourites = favourites.filter(id => id !== saved.id)
+        fav.classList.remove("favourite")
+        fav.classList.add("fa-regular")
+        fav.classList.remove("fa-solid")
+    } else {
+        favourites.push(saved.id)
+        fav.classList.add("favourite")
+        fav.classList.remove("fa-regular")
+        fav.classList.add("fa-solid")
+    }
+
+    localStorage.setItem("favourites", JSON.stringify(favourites))
+
+    console.log(favourites)
+})        
 }

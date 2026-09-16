@@ -62,6 +62,8 @@ function favouriteChoice(favourite) {
     if (favourites.includes(favourite.id)) {
         favourites = favourites.filter(id => id !== favourite.id)
         fav.classList.remove("favourite")
+        fav.classList.add("fa-regular")
+        fav.classList.remove("fa-solid")
     } else {
         favourites.push(favourite.id)
         fav.classList.add("favourite")
